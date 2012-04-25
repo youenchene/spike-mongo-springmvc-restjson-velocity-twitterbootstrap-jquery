@@ -1,10 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>ys276-parent</artifactId>
-    <groupId>ys276</groupId>
-    <version>1.0.4</version>
-  </parent>
   <groupId>ys276.core</groupId>
   <artifactId>core</artifactId>
   <version>0.0.1-SNAPSHOT</version>
@@ -21,10 +16,26 @@
   <properties>
   		<spring.data.mongodb.version>1.0.0.RELEASE</spring.data.mongodb.version>
   		<mongodb.driver.version>2.7.2</mongodb.driver.version>
-  		
+  		<gwt.version>2.4.0</gwt.version>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<spring.version>3.1.0.RELEASE</spring.version>
+		<spring.security.version>3.1.0.RELEASE</spring.security.version>
+		<junit.version>4.7</junit.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<camel.version>2.9.0</camel.version>
+		<slf4j.version>1.6.1</slf4j.version>
   </properties>
   
    <dependencies>
+   
+   		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
   
   <!-- Spring Data MongoDB -->
 	<dependency>
@@ -45,4 +56,62 @@
 	</dependency>
 
   </dependencies>
+  
+  
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+		<repositories>
+		<!--
+			<repository> <id>com.springsource.repository.libraries.release</id>
+			<name>SpringSource Enterprise Bundle Repository - SpringSource
+			Library Releases</name>
+			<url>http://repository.springsource.com/maven/libraries/release</url>
+			</repository> <repository>
+			<id>com.springsource.repository.libraries.external</id>
+			<name>SpringSource Enterprise Bundle Repository - External Library
+			Releases</name>
+			<url>http://repository.springsource.com/maven/libraries/external
+			</url> </repository>
+		-->
+		<!-- Needed for last gwt-incubator package -->
+		<repository>
+			<id>org.xwiki.maven.external</id>
+			<name>SpringSource Enterprise Bundle Repository - External Library
+				Releases</name>
+			<url>http://maven.xwiki.org/externals/</url>
+		</repository>
+
+		<repository>
+			<id>gwt-mobile-webkit</id>
+			<url>http://gwt-mobile-webkit.googlecode.com/svn/repo</url>
+		</repository>
+		
+		<repository>
+			<id>google-maven-snapshot-repository</id>
+			<name>Google Maven Snapshot Repository</name>
+			<url>https://oss.sonatype.org/content/repositories/google-snapshots/
+			</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		
+		<repository>
+			<id>opennms</id>
+			<url>http://repo.opennms.org/maven2/</url>
+		</repository>
+
+	</repositories>
 </project>
